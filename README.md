@@ -48,7 +48,7 @@ The food waste prediction model is available through a public API that returns p
 
 **YouTube Demo**
 Here’s a 2-minute demo showcasing how the food waste prediction model works and how to use the mobile app:
-Food Waste Prediction Demo
+https://youtu.be/-LITb_6_pog
 
 
 ## Instructions For Running Mobile App
