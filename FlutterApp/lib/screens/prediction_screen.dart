@@ -24,7 +24,7 @@ class _PredictionScreenState extends State<PredictionScreen> {
       _isLoading = true;
     });
 
-    final url = Uri.parse('http://127.0.0.1:8000/predict'); // Replace with your API URL
+    final url = Uri.parse('https://food-waste-prediction-app.onrender.com/docs#/'); // Replace with your API URL
     try {
       final response = await http.post(
         url,
