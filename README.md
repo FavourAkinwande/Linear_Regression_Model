@@ -55,7 +55,7 @@ Food Waste Prediction Demo
 1. **Clone the Repository**:  
    Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/yourusername/food-waste-prediction.git
+   git clone https://github.com/FavourAkinwande/Linear_-Regression_Model.git
    ```
 
 2. **Install Dependencies**:  
