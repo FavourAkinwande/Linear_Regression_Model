@@ -33,17 +33,14 @@ The dataset used for this project includes food waste data for various countries
 11. Region: The geographical region of the country
 12. Source: The source of the data.
 
-API Endpoint
+**API Endpoint**
 The food waste prediction model is available through a public API that returns predictions based on the input values provided.
-**API URL**:https://food-waste-prediction-app.onrender.com
+**API URL**: https://food-waste-prediction-app.onrender.com/docs#
 
 **Input Parameters**
 1. household_estimate (float): Food waste estimate from households (in kilograms per capita per year).
 2. retail_estimate (float): Food waste estimate from retail (in kilograms per capita per year).
 3. food_service_estimate (float): Food waste estimate from food services (in kilograms per capita per year).
-
-You can test the API and view its documentation using Swagger UI:
-https://food-waste-prediction-app.onrender.com/docs#/
 
 **YouTube Demo**
 Here’s a 2-minute demo showcasing how the food waste prediction model works and how to use the mobile app:
