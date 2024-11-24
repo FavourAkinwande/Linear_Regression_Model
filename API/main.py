@@ -1,9 +1,10 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel, Field, ValidationError
 from joblib import load
 import pandas as pd  # Import pandas
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.exceptions import RequestValidationError  
 
 
 model = load("Food_waste_Analysis_By_Country.joblib")
@@ -45,22 +46,22 @@ class PredictionRequest(BaseModel):
     )
 
 
-@app.exception_handler(ValidationError)
-async def validation_exception_handler(request, exc: ValidationError):
-    
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
     error_messages = []
-    
+
+    # Loop through the errors and create a user-friendly message
     for error in exc.errors():
-        loc = error.get("loc")[-1]  
-        msg = f"Input for {loc} is out of range. Please provide a value between the specified limits."
+        loc = error.get("loc")[-1]  # Extract the field name (e.g., "age")
+        
+        # Customize error messages based on the type of validation error
+        msg = f"The input number for {loc} is out of range. Please provide a value between the specified limits."
+
         error_messages.append({
             "msg": msg,
-            "loc": error.get("loc"),
-            "input_value": error.get("input"),
-            "constraint": error.get("ctx"),
         })
-    
-    
+
+    # Return a more user-friendly response
     return JSONResponse(
         status_code=422,
         content={"detail": error_messages},
